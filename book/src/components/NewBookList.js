@@ -15,7 +15,10 @@ function NewBookList({ library, secretKey }) {
                 "&shelf_change_start_date=2024-01-01" + 
                 "&shelf_change_end_date=2024-12-31"
             ).then(response => {
-                setBookList(response.data.response.body.items.item);
+                console.log(response);
+                if (response.data.response.header.resultCode === "S001") {
+                    setBookList(response.data.response.body.items.item);
+                }
             }).catch(error => {
                 console.log(error);
             })

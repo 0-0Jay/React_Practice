@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function BestBookList({ library, secretKey }) {
-    const [pageNo, setPageNo] = useState(1);
     const [bookList, setBookList] = useState([]);
 
     useEffect(() => {
@@ -11,17 +10,20 @@ function BestBookList({ library, secretKey }) {
                 "https://apis.data.go.kr/6270000/dgsmartlib/bestBookList?" + 
                 "serviceKey=" + secretKey +
                 "&pageNo=1" + 
-                "&numOfRows=100" +
+                "&numOfRows=10" +
                 "&code=" + library + 
                 "&search_start_date=2024-01-01" +
                 "&search_end_date=2024-12-31"
             ).then(response => {
-                setBookList(response.data.response.body.items.item);
+                console.log(response)
+                if (response.data.response.header.resultCode === "S001") {
+                    setBookList(response.data.response.body.items.item);
+                }
             }).catch(error => {
                 console.log(error);
             })
         }
-    }, [library]);
+    }, [library, secretKey]);
 
     return (
         <div>

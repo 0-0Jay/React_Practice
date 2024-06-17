@@ -41,7 +41,7 @@ function Body() {
                 <div className="collapse collapse-arrow bg-base-200" style = {menuStyle}>
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title text-xl font-medium" style={{fontWeight : 'bold'}}>
-                        위치 안내
+                        위치 지도
                     </div>
                     <div className="collapse-content">
                         <SmartLibPlace library={library} secretKey={secretKey}/>
@@ -50,7 +50,7 @@ function Body() {
                 <div className="collapse collapse-arrow bg-base-200" style = {menuStyle}>
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title text-xl font-medium" style={{fontWeight : 'bold'}}>
-                        2024년 인기대출 도서 TOP 100
+                        2024년 인기대출 도서 TOP 10
                     </div>
                     <div className="collapse-content">
                         <BestBookList library={library} secretKey={secretKey}/>
@@ -76,7 +76,7 @@ function Body() {
                 </div>
             </div>
             <div>
-                * API 제공 서버에 문제가 있어 응답이 느립니다. 책 리스트가 늦게 표시될 수 있습니다. 5~10초 정도 기다려주십시오.
+                * API 제공 서버가 느려 응답이 느립니다. 책 리스트가 늦게 표시될 수 있습니다. 5초 정도 기다려주십시오.
             </div>
         </div>
     );
